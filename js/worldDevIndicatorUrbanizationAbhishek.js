@@ -8,8 +8,8 @@ let convert = function convert(startYear) {
 	if (isNaN(startYear)) {
 		throw new Error('Not a number');
 	}
-	// creating readstream
-	let lineReader = rl.createInterface({
+	// creating readstream interface
+	const lineReader = rl.createInterface({
 		input: fs.createReadStream('../inputdata/Indicators.csv')
 	});
 	let objarr = [];
@@ -46,7 +46,7 @@ let convert = function convert(startYear) {
 		}
 		// creating JSON data from the array
 		jsondata = JSON.stringify(jsonarr);
-		// creating JSON file to output data
+		// creating JSON file in outputdata
 		fs.writeFile('../outputdata/worldDevIndicatorUrbanizationAbhishek.json', jsondata);
 	});
 	return 'JSON written successfully';
