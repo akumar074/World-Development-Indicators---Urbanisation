@@ -1,12 +1,14 @@
 // author: abhishek kumar
 // importing required modules
+const log4js = require('log4js');
+const logger = log4js.getLogger();
 const rl = require('readline');
 const fs = require('fs');
 // create module convert
 let convert = function convert(startYear) {
 	// startyear validation
 	if (isNaN(startYear)) {
-		throw new Error('Not a number');
+		logger.error('given year is not a number');
 	}
 	// creating readstream interface
 	const lineReader = rl.createInterface({
@@ -51,4 +53,5 @@ let convert = function convert(startYear) {
 	});
 	return 'JSON written successfully';
 };
+convert();
 module.exports = convert;
